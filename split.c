@@ -775,6 +775,11 @@ int main(int argc, char *argv[]) {
 
     // Parse arguments
     int opt;
+    // Check if no arguments were provided
+    if (argc == 1) {
+        print_usage(argv[0]); // Показать справку
+        return EXIT_SUCCESS;  // Завершить программу успешно
+    }
     while ((opt = getopt(argc, argv, "i:m:t:S:s:M:w:d:k:be")) != -1) {
         switch (opt) {
             case 'i': strncpy(config.input_filename, optarg, MAX_PATH_LEN - 1); config.input_filename[MAX_PATH_LEN - 1] = '\0'; break;
